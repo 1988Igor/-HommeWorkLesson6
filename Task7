@@ -1,0 +1,34 @@
+//Написать программу, которая в двумерном массиве заменяет строки на столбцы или сообщить, что это невозможно (в случае, если матрица не квадратная).
+void PrintArray(int[,] array)
+{
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($" {array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+void ChangeArray(int[,] array)
+{
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($" {array[j, i]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+int[,] matrix = { { 21, 12, 13, 24 },
+                 { 25, 16, 47, 38 },
+                 { 29, 11, 32, 54 },
+                 { 42, 21, 33, 10 } };
+
+PrintArray(matrix);
+Console.WriteLine($"The changed array: ");
+ChangeArray(matrix);
