@@ -1,0 +1,47 @@
+//Дан целочисленный массив. Найти среднее арифметическое каждого из столбцов.
+void PrintArray(double[,] matr)
+{
+
+
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+
+        for (int j = 0; j < matr.GetLength(1); j++)
+
+        {
+            Console.Write($" {matr[i, j]} ");
+
+        }
+        Console.WriteLine();
+    }
+
+}
+
+void CalculateColumns(double[,] matr)
+
+{
+    double[] colsum = new double[10];
+    int n = 4;
+
+    for (int i = 0; i < n; i++)
+    {
+        colsum[i] = 0;
+        for (int j = 0; j < n; j++)
+            colsum[i] = colsum[i] + matr[j, i];
+    }
+    Console.WriteLine();
+    Console.WriteLine($"The arithmetic mean of each of the columns is : \n");
+
+    Console.Write("\n");
+    for (int j = 0; j < n; j++)
+    {
+        Console.Write("{0}   ", colsum[j] / 2);
+    }
+    Console.Write("\n\n");
+}
+
+double[,] matrix = new double[4, 4] { { 3, 4, 5, 8 }, { 8, 4, 5, 9 }, { 4, 5, 5, 3 }, { 8, 3, 5, 6 } };
+Console.WriteLine("The array is: ");
+Console.WriteLine();
+PrintArray(matrix);
+CalculateColumns(matrix);
