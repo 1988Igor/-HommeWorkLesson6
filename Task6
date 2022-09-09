@@ -1,0 +1,46 @@
+//Написать программу, упорядочивания по убыванию элементы каждой строки двумерной массива.
+int[,] array1 = new int[4, 4];
+int[,] arrayrows = new int[4, 4];
+Random ran = new Random();
+void PrintArray(int[,] array1)
+{
+    for (int i = 0; i < array1.GetLength(0); i++)
+    {
+        for (int j = 0; j < array1.GetLength(1); j++)
+        {
+            array1[i, j] = ran.Next(1, 10);
+            arrayrows[i, j] = array1[i, j];
+
+            Console.Write($" {array1[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+
+}
+
+void SortArray(int[,] array1)
+{
+    int[] temp = new int[4];
+    Console.WriteLine("The sorted rows: ");
+    for (int i = 0; i < array1.GetLength(0); i++)
+    {
+        for (int j = 0; j < array1.GetLength(1); j++)
+            temp[j] = array1[i, j];
+        Array.Sort(temp);
+        Array.Reverse(temp);
+        for (int k = 0; k < array1.GetLongLength(0); k++)
+        {
+            array1[i, k] = temp[k];
+            Console.Write($" {array1[i, k]} ");
+        }
+        Console.WriteLine();
+
+    }
+}
+
+
+int[,] myarray = new int[4, 4];
+int[,] rows = new int[4, 4];
+Random rand = new Random();
+PrintArray(myarray);
+SortArray(myarray);
