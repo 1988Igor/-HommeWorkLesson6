@@ -1,0 +1,25 @@
+//Написать программу, которая обменивает элементы первой строки и последней строки
+string[,] list = { { "aa", "bb" }, { "cc", "dd" }, { "ee", "ff" }, { "gg", "hh" }, { "ii", "jj" } };
+string tmp;
+
+for (int i = 0; i < list.GetLength(0); i++)
+{
+    for (int j = 0; j < list.GetLength(1); j++)
+        Console.Write($" {list[i, j]}");
+    Console.WriteLine();
+}
+Console.WriteLine();
+
+for (int i = 0; i < list.GetLength(0); i++)
+{
+    for (int j = 0; j < list.GetLength(1); j++)
+    {
+        tmp = list[0, j];
+        list[0, j] = list[5 - 1, j];
+        list[5 - 1, j] = tmp;
+        Console.Write($" {list[i, j]}");
+
+    }
+    Console.WriteLine();
+}
+Console.WriteLine();
